@@ -1,0 +1,155 @@
+/* App surface: warm paper gradient with the grain overlay behind the content (Vault design, docs/design/mockups). */
+.app-surface {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(1300px 820px at 18% -18%, #fbfaf6 0%, rgba(251, 250, 246, 0) 62%),
+    radial-gradient(900px 600px at 105% 105%, rgba(70, 62, 50, 0.1), rgba(70, 62, 50, 0) 70%),
+    linear-gradient(180deg, #f3f1ec 0%, #e9e6df 100%);
+}
+
+/* The grain is absolutely positioned and comes first in the DOM. .app-content is positioned, so it paints above it. */
+.app-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('/grain.svg');
+  background-size: 240px 240px;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+}
+
+.app-content {
+  position: relative;
+}
+
+.app-header {
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 0;
+}
+
+.app-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 56px 16px 96px;
+}
+
+@media (min-width: 720px) {
+  .app-main {
+    padding: 72px 32px 96px;
+  }
+}
+
+/* Floating centred pill navigation. No backdrop blur, because the design rules out glassy effects. */
+.tab-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+  max-width: 100%;
+  padding: 5px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 18px 40px -16px rgba(40, 36, 30, 0.25);
+}
+
+.tab-nav__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 42px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #5c5850;
+  font: 500 14px/1 var(--font-sans);
+  cursor: pointer;
+}
+
+.tab-nav__item:hover {
+  color: var(--ink);
+}
+
+.tab-nav__item[aria-current='page'] {
+  color: #f7f5f0;
+}
+
+/* Until the pill is measured (first paint), the active item draws its own background. */
+.tab-nav:not(:has(.tab-nav__pill)) .tab-nav__item[aria-current='page'],
+.tab-nav__pill {
+  background: linear-gradient(180deg, #3a3833, #1a1916);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 6px 14px -6px rgba(26, 25, 22, 0.5);
+}
+
+/* The graphite pill slides under the active tab; the items sit above it. */
+.tab-nav {
+  position: relative;
+}
+
+.tab-nav__pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 999px;
+  transition:
+    transform var(--dur-slow, 520ms) var(--ease-out, ease),
+    width var(--dur-slow, 520ms) var(--ease-out, ease);
+}
+
+.tab-nav__item {
+  position: relative;
+}
+
+.tab-nav__icon {
+  flex: none;
+  width: 17px;
+  height: 17px;
+}
+
+.placeholder {
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .tab-nav__item {
+    padding: 0 14px;
+  }
+
+  .tab-nav__icon {
+    display: none;
+  }
+}
+
+/*
+ * State tints (Vault design): ember for review, sage once sanitized. Gradients can't be transitioned,
+ * so each tint is its own layer over the paper and crossfades by opacity.
+ */
+.app-tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-slow, 520ms) var(--ease-in-out, ease);
+}
+
+.app-tint--ember {
+  background:
+    radial-gradient(1100px 620px at 50% -12%, rgba(180, 69, 42, 0.26), rgba(180, 69, 42, 0) 70%),
+    radial-gradient(800px 480px at 82% 0%, rgba(214, 140, 92, 0.18), rgba(214, 140, 92, 0) 70%);
+}
+
+.app-tint--sage {
+  background: radial-gradient(1100px 620px at 50% -12%, rgba(84, 122, 96, 0.24), rgba(84, 122, 96, 0) 70%);
+}
+
+.app-surface[data-tint='ember'] .app-tint--ember,
+.app-surface[data-tint='sage'] .app-tint--sage {
+  opacity: 1;
+}

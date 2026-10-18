@@ -1,0 +1,166 @@
+/* Results inside a settings row: tiles, tables, drill outcome, key/value lists and the clear summary. Same set- prefix as settings.css. */
+/* Results area inside a row. */
+.set-results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.set-report__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.set-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0 0 0 18px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.set-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.set-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(40, 36, 30, 0.06);
+  border-radius: 18px;
+  background: #f6f4ef;
+}
+
+.set-tile dt,
+.set-tile dd {
+  margin: 0;
+}
+
+.set-tile__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.set-tile__value {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.set-tile__hint {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.set-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.set-table th,
+.set-table td {
+  padding: 7px 12px;
+  border-top: 1px solid rgba(40, 36, 30, 0.07);
+  text-align: left;
+}
+
+.set-table thead th {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.set-table tbody th {
+  font-weight: 500;
+}
+
+.set-table th:not(:first-child),
+.set-table td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.set-verdict {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.set-verdict--held {
+  color: var(--sage);
+}
+
+.set-verdict--failed {
+  color: var(--ember-text);
+}
+
+.set-kv {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 8px 18px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.set-kv dt {
+  color: var(--muted);
+}
+
+.set-kv dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.set-codes {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.set-cleared {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.set-cleared:focus-visible {
+  border-radius: 12px;
+}
+
+@media (max-width: 719px) {
+  .set-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Key above value on phones, so long error codes get the full width. */
+  .set-kv {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+
+  .set-kv dt {
+    margin-top: 8px;
+  }
+
+  .set-kv dt:first-child {
+    margin-top: 0;
+  }
+}

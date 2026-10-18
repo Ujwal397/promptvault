@@ -1,0 +1,131 @@
+/* Custom rules list, switch and add-rule form on the Policy screen. */
+.custom-card__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.custom-card__empty {
+  padding: 16px 0;
+  border-top: 1px solid rgba(40, 36, 30, 0.07);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.custom-rules {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.custom-rule {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(40, 36, 30, 0.07);
+}
+
+.custom-rule__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.custom-rule__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-rule__name {
+  font-size: 15px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.custom-rule__code {
+  font: 13px/1.4 var(--font-mono);
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.custom-rule__meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.custom-rule__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Switch for one custom rule. Knob only, like the mockup. The knob slides; the track changes colour. */
+.rule-switch {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #d9d5cd;
+  cursor: pointer;
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+
+.rule-switch--on {
+  background: var(--ink);
+}
+
+.rule-switch__knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 1px 3px rgba(26, 25, 22, 0.3);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.rule-switch--on .rule-switch__knob {
+  transform: translateX(18px);
+}
+
+/* The collapsed form sits inside the card's 8px gap, so take that gap back while it is closed. */
+.custom-card > .collapse[data-open='false'] {
+  margin-top: -8px;
+}
+
+/* Add-rule form */
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px 0 8px;
+  border-top: 1px solid rgba(40, 36, 30, 0.07);
+}
+
+.custom-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 16px;
+}
+
+.custom-form__wide {
+  grid-column: 1 / -1;
+}
+
+.custom-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+

@@ -1,0 +1,1 @@
+export { compromiseAnalyzer } from './compromiseAnalyzer'

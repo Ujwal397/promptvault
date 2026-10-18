@@ -1,0 +1,181 @@
+/* History most-caught list, recent-scans table, buttons and the clear confirmation.
+   Loaded after history.css (panel classes) so the table card's spacing overrides the panel defaults. */
+
+/* Most caught */
+.history-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.history-cat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-cat__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.history-cat__count {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.history-cat__track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(40, 36, 30, 0.08);
+  overflow: hidden;
+}
+
+.history-cat__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--muted), var(--ink));
+  /* Bars grow from the left, one after another (capped, so long lists stay quick). */
+  --delay: calc(200ms + min(var(--i, 0), 5) * var(--stagger));
+}
+
+/* Recent scans */
+.history-table-card {
+  gap: 8px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .history-table-card {
+    padding-bottom: 16px;
+  }
+}
+
+.history-table-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+}
+
+.history-table-scroll {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.history-table th {
+  padding: 12px 4px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.history-table td {
+  padding: 16px 4px;
+  border-top: 1px solid rgba(40, 36, 30, 0.07);
+  vertical-align: middle;
+  font-variant-numeric: tabular-nums;
+}
+
+.history-tag {
+  display: inline-flex;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.history-tag--allow {
+  background: #eeebe5;
+  color: #5c5850;
+}
+
+.history-tag--warn {
+  background: rgba(192, 138, 46, 0.16);
+  color: var(--ochre-text);
+}
+
+.history-tag--redact {
+  background: var(--ink);
+  color: #edeae3;
+}
+
+.history-tag--review {
+  background: transparent;
+  color: var(--ember-text);
+  box-shadow: inset 0 0 0 1px rgba(180, 69, 42, 0.35);
+}
+
+.history-tag--block {
+  background: rgba(180, 69, 42, 0.12);
+  color: var(--ember-text);
+}
+
+/* Buttons and the clear confirmation */
+.history-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.history-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid rgba(40, 36, 30, 0.12);
+  border-radius: 999px;
+  background: rgba(253, 252, 250, 0.85);
+  color: var(--ink);
+  font: 500 14px/1 var(--font-sans);
+  cursor: pointer;
+}
+
+.history-btn:hover {
+  background: var(--card);
+}
+
+.history-btn--danger {
+  color: var(--ember-text);
+}
+
+.history-btn--danger-solid {
+  border-color: var(--ember);
+  background: var(--ember);
+  color: #fdfcfa;
+}
+
+.history-btn--danger-solid:hover {
+  border-color: var(--ember-text);
+  background: var(--ember-text);
+}
+
+.history-confirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px 16px;
+}
+
+.history-confirm__text {
+  font-size: 14px;
+  color: var(--ink);
+}

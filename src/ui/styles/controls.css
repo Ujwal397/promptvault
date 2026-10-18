@@ -1,0 +1,108 @@
+/* Surfaces and controls: card, buttons, icon button, two-option switch, step indicator. */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 1px 2px rgba(40, 36, 30, 0.05),
+    0 28px 56px -24px rgba(40, 36, 30, 0.22);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font: 500 15px/1 var(--font-sans);
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #3a3833 0%, #1a1916 100%);
+  color: #f7f5f0;
+  border: 1px solid var(--ink);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 12px 24px -10px rgba(26, 25, 22, 0.55);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-icon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid rgba(40, 36, 30, 0.12);
+  border-radius: 50%;
+  background: var(--card);
+  color: #5c5850;
+  cursor: pointer;
+}
+
+/* Two-option switch drawn as a segmented control. The button carries role="switch". */
+.switch {
+  display: inline-flex;
+  gap: 2px;
+  padding: 4px;
+  border: 0;
+  border-radius: 999px;
+  background: #eeebe5;
+  cursor: pointer;
+}
+
+.switch__option {
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: var(--muted);
+  font: 500 14px/1 var(--font-sans);
+}
+
+.switch__option--on {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(40, 36, 30, 0.14);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.step__bars {
+  display: flex;
+  gap: 6px;
+}
+
+.step__bar {
+  width: 44px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(40, 36, 30, 0.12);
+}
+
+.step__bar--on {
+  background: var(--ink);
+}

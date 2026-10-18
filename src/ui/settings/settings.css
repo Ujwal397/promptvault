@@ -1,0 +1,268 @@
+/* Settings tab (docs/design/mockups/VaultSettings.dc.html). Classes are prefixed set- so they cannot clash with other screens. */
+
+.set-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.set-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: 32px;
+}
+
+.set-lede {
+  max-width: 520px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* Section: title on the left, card on the right. */
+.set-section {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+  gap: 40px;
+  padding: 36px 0;
+  border-top: 1px solid rgba(40, 36, 30, 0.1);
+}
+
+.set-section__head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.set-section__title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.set-section__desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.set-card {
+  min-width: 0;
+  padding: 8px 0;
+}
+
+/* Row inside a card. Rows are separated by a hairline, except the first. */
+.set-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 28px;
+}
+
+.set-item + .set-item {
+  border-top: 1px solid rgba(40, 36, 30, 0.07);
+}
+
+.set-item__text {
+  display: flex;
+  flex: 1 1 280px;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.set-item__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.set-item__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.set-item__desc {
+  max-width: 440px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* max-width keeps long text controls (the privacy statements) inside the row on phones. */
+.set-item__control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.set-item__footer {
+  flex: 1 0 100%;
+  min-width: 0;
+}
+
+.set-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.set-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 9px;
+  border: 1px solid rgba(40, 36, 30, 0.14);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.set-note {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.set-mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.set-status {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.set-status--danger {
+  color: var(--ember-text);
+}
+
+.set-status--ok {
+  font-weight: 500;
+  color: var(--sage);
+}
+
+/* Two-option segmented control (placeholder style, corpus). */
+.set-seg {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: #eeebe5;
+}
+
+.set-seg__btn {
+  height: 34px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 13px/1 var(--font-sans);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.set-seg__btn[aria-pressed='true'] {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(40, 36, 30, 0.14);
+}
+
+.set-seg__btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.set-select {
+  height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(40, 36, 30, 0.12);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font: 500 14px/1 var(--font-sans);
+  cursor: pointer;
+}
+
+/* Ghost button (the base .btn comes from controls.css). Danger is the same button with ember text. */
+.set-btn-ghost {
+  border: 1px solid rgba(40, 36, 30, 0.12);
+  background: rgba(253, 252, 250, 0.85);
+  color: var(--ink);
+}
+
+.set-btn-danger {
+  color: var(--ember-text);
+}
+
+.set-btn-ghost:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Placeholder preview: the label in a dark bar, the copied text beneath the bar. */
+.set-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.set-ph {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 9px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #2e2c28, #1a1916);
+  color: #ede9e2;
+  font: 13px/1 var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* Privacy statement with a check mark. */
+.set-ok {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 420px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--sage);
+}
+
+.set-ok svg {
+  flex: none;
+  margin-top: 3px;
+}
+
+@media (max-width: 719px) {
+  .set-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 28px 0;
+  }
+
+  .set-item {
+    padding: 18px 20px;
+  }
+}

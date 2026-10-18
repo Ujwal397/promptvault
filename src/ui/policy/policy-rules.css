@@ -1,0 +1,120 @@
+/* Rules table on the Policy screen. Phones stack each rule into labelled blocks, so nothing scrolls sideways. */
+/* Rules table: a real table on wide screens; stacked into labelled blocks on phones. */
+.rules-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rules-table th,
+.rules-table td {
+  padding: 14px 4px;
+  border-top: 1px solid rgba(40, 36, 30, 0.07);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.rules-table thead th {
+  padding-top: 0;
+  border-top: 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.rules-table thead th:nth-child(1) {
+  width: 46%;
+}
+
+.rules-table thead th:nth-child(2) {
+  width: 34%;
+}
+
+.rules-table tbody th {
+  font-weight: 400;
+}
+
+.rules-table td:nth-child(3) {
+  width: 20%;
+}
+
+.rule-name {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.rule-lock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.rule-fallback {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Phones: each rule becomes a block with its labels, so nothing scrolls sideways. */
+@media (max-width: 640px) {
+  .rules-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .rules-table,
+  .rules-table tbody,
+  .rules-table tr,
+  .rules-table th,
+  .rules-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .rules-table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 12px 14px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(40, 36, 30, 0.07);
+  }
+
+  .rules-table tbody tr:first-child {
+    border-top: 0;
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .rules-table tbody th {
+    grid-column: 1 / -1;
+  }
+
+  .rules-table td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .rules-table td:nth-child(3) {
+    width: 100%;
+  }
+
+  .policy-select {
+    font-size: 14px;
+  }
+}

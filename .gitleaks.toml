@@ -1,0 +1,17 @@
+# The repository intentionally contains SYNTHETIC, non-functional credentials as detector test fixtures
+# (built by string concatenation where possible). Real secrets anywhere else must still fail the scan.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Synthetic detector fixtures and the evaluation corpus"
+paths = [
+  '''src/core/.*\.test\.ts''',
+  '''src/core/eval/.*''',
+  '''src/core/detectors/.*/(testing|fixtures)\.ts''',
+  '''e2e/.*''',
+  '''docs/.*''',
+]
+# Detector sources are NOT path-allowlisted: inline example strings there must carry a synthetic marker
+# or be built by concatenation, so a real key pasted into a detector file still fails CI.
+regexes = ['''(?i)example''', '''(?i)fake''', '''IOSFODNN7''']

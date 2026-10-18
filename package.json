@@ -1,0 +1,56 @@
+{
+  "name": "promptvault",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": [
+    "*.css",
+    "./src/zodJitless.ts",
+    "./src/adapters/web/lockdown.ts"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "build:harness": "vite build -c vite.harness.config.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -b",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --project=ui-chromium --project=ui-firefox --project=ui-webkit",
+    "eval": "tsx scripts/eval.ts",
+    "docs:detectors": "tsx scripts/gen-detector-docs.ts",
+    "rules:snapshot": "vitest run --config vitest.snapshot.config.ts",
+    "fuzz": "vitest run src/core/fuzz.test.ts",
+    "policy:sign": "tsx scripts/sign-policy.ts",
+    "check:licenses": "tsx scripts/check-licenses.ts",
+    "check:build": "tsx scripts/check-build.ts",
+    "sbom": "npm sbom --sbom-format cyclonedx --omit dev > sbom.cdx.json",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@scure/bip39": "2.4.0",
+    "compromise": "14.18.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "@vitest/coverage-v8": "5.0.5",
+    "fast-check": "4.10.2",
+    "oxlint": "1.88.0",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "vite": "8.3.4",
+    "vitest": "5.0.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

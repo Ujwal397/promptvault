@@ -1,0 +1,78 @@
+import * as F from './fixtures'
+import { ex, mk, type EvalCase } from './helpers'
+
+const P: ['positive'] = ['positive']
+
+export const PII_CASES: EvalCase[] = [
+  // email
+  mk('dev', 'pii-email-plain', 'Single email', 'Please send the report to jane.doe@example.com by Friday.',
+    [ex('email', 'jane.doe@example.com')], 'redact', P),
+  mk('dev', 'pii-email-plus', 'Plus-addressed email', 'Forward it to ops+alerts@example.org.',
+    [ex('email', 'ops+alerts@example.org')], 'redact', P),
+  mk('dev', 'pii-email-two', 'Two emails', 'cc: a.smith@example.com, b.jones@example.net',
+    [ex('email', 'a.smith@example.com'), ex('email', 'b.jones@example.net')], 'redact', P),
+  mk('heldout', 'pii-email-subdomain', 'Email on a test subdomain', 'Reach support at help@mail.example.test for refunds.',
+    [ex('email', 'help@mail.example.test')], 'redact', P),
+  // phone
+  mk('dev', 'pii-phone-us-paren', 'US phone with parentheses', 'Call me at (415) 555-0132 after lunch.',
+    [ex('phone', '(415) 555-0132')], 'redact', P),
+  mk('dev', 'pii-phone-intl', 'International US format', 'My number is +1-212-555-0147.',
+    [ex('phone', '+1-212-555-0147')], 'redact', P),
+  mk('heldout', 'pii-phone-dots', 'Dotted phone', 'Office line: 303.555.0188',
+    [ex('phone', '303.555.0188')], 'redact', P),
+  mk('dev', 'pii-phone-uk', 'UK phone', 'Ring the London desk on +44 20 7946 0958.',
+    [ex('phone', '+44 20 7946 0958')], 'redact', P),
+  // person_name
+  mk('dev', 'pii-name-label', 'Labeled name', 'Name: Jane Doe\nPlan: Premium',
+    [ex('person_name', 'Jane Doe')], 'redact', P),
+  mk('dev', 'pii-name-dear', 'Salutation name', 'Dear Mr Smith, thank you for contacting us.',
+    [ex('person_name', 'Mr Smith')], 'redact', P),
+  mk('heldout', 'pii-name-customer', 'Labeled customer name', 'Customer name: Priya Raman reported the issue.',
+    [ex('person_name', 'Priya Raman')], 'redact', P),
+  // ip_address
+  mk('dev', 'pii-ip-v4', 'IPv4 address', 'The server at 192.0.2.44 stopped responding.',
+    [ex('ip_address', '192.0.2.44')], 'warn', P),
+  mk('dev', 'pii-ip-pair', 'Two IPv4 addresses', 'Traffic from 198.51.100.23 to 203.0.113.9 was dropped.',
+    [ex('ip_address', '198.51.100.23'), ex('ip_address', '203.0.113.9')], 'warn', P),
+  mk('heldout', 'pii-ip-v6', 'IPv6 address', 'Client address 2001:db8::1 is unreachable.',
+    [ex('ip_address', '2001:db8::1')], 'warn', P),
+  // gov_id
+  mk('dev', 'pii-gov-ssn', 'Labeled SSN', `SSN: ${F.SSN}`,
+    [ex('gov_id', F.SSN)], 'redact', P),
+  mk('dev', 'pii-gov-aadhaar', 'Aadhaar with valid Verhoeff checksum', `Aadhaar: ${F.AADHAAR}`,
+    [ex('gov_id', F.AADHAAR)], 'redact', P),
+  mk('heldout', 'pii-gov-pan', 'Indian PAN', `PAN number ${F.PAN} is on the form.`,
+    [ex('gov_id', F.PAN)], 'redact', P),
+  mk('heldout', 'pii-gov-ssn-sentence', 'SSN in a sentence', `My social security number is ${F.SSN}, please verify.`,
+    [ex('gov_id', F.SSN)], 'redact', P),
+  // financial
+  mk('dev', 'pii-fin-visa', 'Visa test card, spaced', 'Card: 4111 1111 1111 1111 exp 12/30',
+    [ex('financial', '4111 1111 1111 1111')], 'redact', P),
+  mk('dev', 'pii-fin-mc', 'Mastercard test card, plain digits', `Charge ${F.CARD_MC} please`,
+    [ex('financial', F.CARD_MC)], 'redact', P),
+  mk('heldout', 'pii-fin-amex', 'Amex test card', `Amex ${F.CARD_AMEX} was declined`,
+    [ex('financial', F.CARD_AMEX)], 'redact', P),
+  mk('dev', 'pii-fin-iban', 'Valid-checksum fake IBAN', `Wire the funds to IBAN ${F.IBAN}.`,
+    [ex('financial', F.IBAN)], 'redact', P),
+  mk('heldout', 'pii-fin-card-dashes', 'Visa test card with dashes', 'Card number 4111-1111-1111-1111',
+    [ex('financial', '4111-1111-1111-1111')], 'redact', P),
+  // health
+  mk('dev', 'pii-health-mrn', 'Labeled MRN', 'Patient MRN: 00123456 admitted overnight.',
+    [ex('health', '00123456')], 'redact', P),
+  mk('dev', 'pii-health-mrn-long', 'Medical record number label', 'Medical Record Number: MR-884213',
+    [ex('health', 'MR-884213')], 'redact', P),
+  mk('heldout', 'pii-health-mrn-bare', 'MRN label without colon', 'Please pull chart for MRN 4455667.',
+    [ex('health', '4455667')], 'redact', P),
+  mk('dev', 'pii-gov-sin', 'Canadian SIN, spaced', `SIN: ${F.SIN_CA}`,
+    [ex('gov_id', F.SIN_CA)], 'redact', P),
+  mk('dev', 'pii-gov-tfn', 'Australian TFN', `My TFN is ${F.TFN_AU}, please lodge the return.`,
+    [ex('gov_id', F.TFN_AU)], 'redact', P),
+  mk('dev', 'pii-gov-cpf', 'Brazilian CPF', `CPF do cliente: ${F.CPF_BR}`,
+    [ex('gov_id', F.CPF_BR)], 'redact', P),
+  mk('heldout', 'pii-gov-nric', 'Singapore NRIC', `NRIC ${F.NRIC_SG} was used to register.`,
+    [ex('gov_id', F.NRIC_SG)], 'redact', P),
+  mk('dev', 'pii-gov-dni', 'Spanish DNI', `DNI ${F.DNI_ES} del solicitante`,
+    [ex('gov_id', F.DNI_ES)], 'redact', P),
+  mk('heldout', 'pii-gov-itin', 'US ITIN', `ITIN: ${F.ITIN_US}`,
+    [ex('gov_id', F.ITIN_US)], 'redact', P),
+]

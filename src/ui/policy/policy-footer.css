@@ -1,0 +1,55 @@
+/* Footer: notices, import / export, unsaved state and save */
+.policy-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.policy-notices--filled {
+  margin-bottom: 12px;
+}
+
+.policy-notice {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.policy-notice--error {
+  color: var(--ember-text);
+}
+
+.policy-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.policy-footer__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.policy-unsaved {
+  font-size: 13px;
+  color: var(--ochre-text);
+}
+
+@media (max-width: 480px) {
+  .policy-footer__group {
+    width: 100%;
+  }
+
+  .policy-footer__group .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .policy-footer__group:last-child .btn-primary {
+    width: 100%;
+  }
+}

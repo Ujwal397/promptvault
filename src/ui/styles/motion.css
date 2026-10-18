@@ -1,0 +1,276 @@
+/*
+ * Motion system. One easing family and three durations, so every animation in the app feels the same:
+ * calm, short, settling softly ("ink on paper"). CSS only (CSP-safe, no JS animation library).
+ * Animations always play, whatever the OS motion setting (the user's decision, 2026-10-18).
+ *
+ * Entrance animations fill with `both`, so an element holds its end state. While one is applied its
+ * transform and opacity win over every other rule, so never put an entrance class on a button (it would
+ * freeze the hover lift or the disabled dimming). Put entrances on blocks and containers.
+ * `--delay` (default 0ms) offsets one element without adding a class.
+ */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur-base: 280ms;
+  --dur-slow: 520ms;
+  --stagger: 55ms;
+}
+
+@keyframes pv-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pv-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Redaction bars: ink wipes across left to right, like a marker stroke. */
+@keyframes pv-ink-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes pv-grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes pv-grow-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* A block opens from nothing. The grid row animates, so no height is measured in JS. */
+@keyframes pv-expand-in {
+  from {
+    grid-template-rows: 0fr;
+  }
+  to {
+    grid-template-rows: 1fr;
+  }
+}
+
+/* The busy dot breathes. It is the only motion that repeats, and only while work is running. */
+@keyframes pv-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* A view rises in each time it is shown. Restarts automatically when [hidden] is removed. */
+.motion-view,
+.motion-rise {
+  animation: pv-rise-in var(--dur-slow) var(--ease-out) var(--delay, 0ms) both;
+}
+
+/* Children rise in one after another. Use on a container whose direct children are the blocks. */
+.motion-stagger > * {
+  animation: pv-rise-in var(--dur-slow) var(--ease-out) both;
+}
+.motion-stagger > :nth-child(2) {
+  animation-delay: calc(var(--stagger) * 1);
+}
+.motion-stagger > :nth-child(3) {
+  animation-delay: calc(var(--stagger) * 2);
+}
+.motion-stagger > :nth-child(4) {
+  animation-delay: calc(var(--stagger) * 3);
+}
+.motion-stagger > :nth-child(5) {
+  animation-delay: calc(var(--stagger) * 4);
+}
+.motion-stagger > :nth-child(n + 6) {
+  animation-delay: calc(var(--stagger) * 5);
+}
+
+.motion-fade {
+  animation: pv-fade-in var(--dur-base) var(--ease-out) var(--delay, 0ms) both;
+}
+
+.motion-ink {
+  animation: pv-ink-wipe var(--dur-slow) var(--ease-in-out) var(--delay, 0ms) both;
+}
+
+.motion-grow-x {
+  transform-origin: left center;
+  animation: pv-grow-x var(--dur-slow) var(--ease-out) var(--delay, 0ms) both;
+}
+
+.motion-grow-y {
+  transform-origin: center bottom;
+  animation: pv-grow-y var(--dur-slow) var(--ease-out) var(--delay, 0ms) both;
+}
+
+/* Opens a block from nothing. Its child is clipped while the row is still opening. */
+.motion-expand {
+  display: grid;
+  grid-template-rows: 1fr;
+  animation: pv-expand-in var(--dur-base) var(--ease-out) var(--delay, 0ms) both;
+}
+
+.motion-expand > * {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/*
+ * A collapsible region that stays mounted, so it can animate both ways. Closed content is inert, so it
+ * can't take focus. The -8px inset gives focus rings room inside the clipped box, and the padding returns
+ * the content to the card's edge.
+ */
+.collapse {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition:
+    grid-template-rows var(--dur-base) var(--ease-out),
+    margin-top var(--dur-base) var(--ease-out);
+}
+
+.collapse[data-open='false'] {
+  grid-template-rows: 0fr;
+}
+
+.collapse > .collapse__inner {
+  min-height: 0;
+  overflow: hidden;
+  margin: 0 -8px;
+  padding: 0 8px;
+}
+
+/* Notices and errors fade in when they appear. */
+.editor-notice,
+.policy-notice,
+.field__error,
+.restore-status,
+.set-status {
+  animation: pv-fade-in var(--dur-base) var(--ease-out) both;
+}
+
+/* Busy indicator: one soft dot that breathes while work runs. Its base style is the final, visible state. */
+.busy-dot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pv-breathe 1.4s var(--ease-in-out) infinite;
+}
+
+/* Step bars for the steps reached grow in one after another. */
+.step__bar--on {
+  transform-origin: left center;
+  animation: pv-grow-x var(--dur-slow) var(--ease-out) var(--delay, 0ms) both;
+}
+.step__bars > :nth-child(2) {
+  --delay: 90ms;
+}
+.step__bars > :nth-child(3) {
+  --delay: 180ms;
+}
+
+/* Shared control feel: a soft lift on hover and a small press. */
+.btn,
+.icon-btn,
+.tab-nav__item {
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+.btn:not(:disabled):hover,
+.icon-btn:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.btn:not(:disabled):active,
+.icon-btn:not(:disabled):active {
+  transform: translateY(0) scale(0.98);
+}
+
+.switch__option,
+.step__bar {
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.card {
+  transition: box-shadow var(--dur-base) var(--ease-out);
+}
+
+/* Segmented options: the active one crossfades its background, text colour and shadow. */
+.seg,
+.pill,
+.preset-control__btn,
+.set-seg__btn {
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+/* Text and ghost-style buttons: colour changes on hover are quick. */
+.btn-text,
+.history-btn {
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+/* Fields: borders and background ease. The focus outline stays instant, so keyboard focus is never in doubt. */
+.editor,
+.reply-input,
+.field__input,
+.policy-select,
+.set-select {
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.editor:focus,
+.reply-input:focus,
+.field__input:focus:not([aria-invalid='true']),
+.policy-select:focus,
+.set-select:focus {
+  border-color: rgba(40, 36, 30, 0.32);
+  box-shadow: 0 0 0 4px rgba(40, 36, 30, 0.06);
+}

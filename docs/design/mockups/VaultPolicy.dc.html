@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PromptVault · Policy</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F1EFEA}
+a{color:#1A1916}a:hover{color:#6F6A62}
+.grain{position:absolute;inset:0;pointer-events:none;background-image:url(/_blob/d1cff6e6c1ff04dd91572b4e9c32ec7b);background-size:240px 240px;opacity:0.22;mix-blend-mode:multiply}
+.card{background:#FDFCFA;border:1px solid rgba(40,36,30,0.08);border-radius:28px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 1px 2px rgba(40,36,30,0.05),0 28px 56px -24px rgba(40,36,30,0.22)}
+.btn{font:500 15px 'Geist',sans-serif;height:46px;padding:0 22px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;letter-spacing:-0.01em}
+.btn-primary{background:linear-gradient(180deg,#3A3833 0%,#1A1916 100%);color:#F7F5F0;border:1px solid #1A1916;box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 12px 24px -10px rgba(26,25,22,0.55)}
+.btn-ghost{background:rgba(253,252,250,0.85);color:#1A1916;border:1px solid rgba(40,36,30,0.12)}
+.navbtn{font:500 14px 'Geist',sans-serif;height:42px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:#5C5850;cursor:pointer;display:inline-flex;align-items:center;gap:9px}
+.navbtn.on{background:linear-gradient(180deg,#3A3833,#1A1916);color:#F7F5F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 6px 14px -6px rgba(26,25,22,0.5)}
+.seg{font:500 14px 'Geist',sans-serif;height:38px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:#6F6A62;cursor:pointer}
+.seg.on{background:#FDFCFA;color:#1A1916;box-shadow:0 1px 3px rgba(40,36,30,0.14)}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#8E887E}
+.rule{display:grid;grid-template-columns:minmax(180px,1.4fr) minmax(140px,1fr) minmax(120px,0.8fr) 40px;align-items:center;gap:16px;padding:16px 4px;border-top:1px solid rgba(40,36,30,0.07)}
+.sel{font:500 14px 'Geist',sans-serif;height:38px;padding:0 14px;border-radius:999px;border:1px solid rgba(40,36,30,0.12);background:#FDFCFA;color:#1A1916;width:100%}
+.act-redact{color:#1A1916}
+.lock{color:#8E887E;display:flex;justify-content:flex-end}
+.switch{width:44px;height:26px;border-radius:999px;border:0;padding:3px;cursor:pointer;display:flex;align-items:center}
+.switch span{width:20px;height:20px;border-radius:50%;background:#FDFCFA;box-shadow:0 1px 3px rgba(26,25,22,0.3)}
+.chip{font:500 12px 'Geist',sans-serif;padding:3px 10px;border-radius:999px;background:#EEEBE5;color:#5C5850}
+</style>
+</helmet>
+<div style="position: relative; overflow: hidden; min-height: 1500px; background: radial-gradient(1300px 820px at 18% -18%, #FBFAF6 0%, rgba(251,250,246,0) 62%), radial-gradient(900px 600px at 105% 105%, rgba(70,62,50,0.10), rgba(70,62,50,0) 70%), linear-gradient(180deg, #F3F1EC 0%, #E9E6DF 100%); font-family: 'Geist', sans-serif; color: #1A1916; letter-spacing: -0.01em">
+  <div class="grain"></div>
+  <div style="position: relative">
+    <div style="display: flex; justify-content: center; padding: 24px 16px 0">
+      <nav aria-label="Main" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; padding: 5px; background: rgba(253,252,250,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(40,36,30,0.08); border-radius: 999px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 18px 40px -16px rgba(40,36,30,0.25)">
+        <button class="navbtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2"></path><path d="M16 4h2a2 2 0 0 1 2 2v2"></path><path d="M20 16v2a2 2 0 0 1-2 2h-2"></path><path d="M8 20H6a2 2 0 0 1-2-2v-2"></path></svg>Scan</button>
+        <button class="navbtn on"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg>Policy</button>
+        <button class="navbtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>History</button>
+        <button class="navbtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M4.9 4.9l2.1 2.1"></path><path d="M17 17l2.1 2.1"></path><path d="M2 12h3"></path><path d="M19 12h3"></path><path d="M4.9 19.1L7 17"></path><path d="M17 7l2.1-2.1"></path></svg>Settings</button>
+      </nav>
+    </div>
+
+    <main style="max-width: 1080px; margin: 0 auto; padding: 72px 32px 96px; display: flex; flex-direction: column; gap: 32px">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <h1 style="margin: 0; font-size: 48px; line-height: 1.04; font-weight: 600; letter-spacing: -0.05em">Policy</h1>
+          <p style="margin: 0; max-width: 520px; font-size: 17px; line-height: 1.55; color: #6F6A62">Decide what happens to each kind of sensitive data before a prompt leaves your hands.</p>
+        </div>
+        <div role="group" aria-label="Preset" style="display: flex; padding: 4px; background: #EEEBE5; border-radius: 999px; gap: 2px">
+          <button class="seg on">Strict</button>
+          <button class="seg">Permissive</button>
+          <button class="seg">Custom</button>
+        </div>
+      </div>
+
+      <section class="card" style="padding: 32px 36px 20px; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px">
+          <h2 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.02em">Rules by category</h2>
+          <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #8E887E"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Locked rules can't be relaxed</span>
+        </div>
+        <div class="rule" style="border-top: 0; padding-top: 0; padding-bottom: 10px"><span class="eyebrow">Category</span><span class="eyebrow">Action</span><span class="eyebrow">Min. confidence</span><span></span></div>
+
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Private keys</span><select class="sel" aria-label="Private keys action" disabled><option>Block</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.70</span><span class="lock" aria-label="Locked"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Crypto seed phrases</span><select class="sel" aria-label="Crypto seed action" disabled><option>Block</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.70</span><span class="lock" aria-label="Locked"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Passwords &amp; API keys</span><select class="sel" aria-label="Credentials action" disabled><option>Redact</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.70</span><span class="lock" aria-label="Locked"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Cloud credentials</span><select class="sel" aria-label="Cloud credentials action" disabled><option>Redact</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.70</span><span class="lock" aria-label="Locked"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Database connections</span><select class="sel" aria-label="Database action" disabled><option>Redact</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.70</span><span class="lock" aria-label="Locked"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Government IDs</span><select class="sel" aria-label="Government ID action"><option>Redact</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.70</span><span></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Financial details</span><select class="sel" aria-label="Financial action"><option>Redact</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.70</span><span></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Health information</span><select class="sel" aria-label="Health action"><option>Redact</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.70</span><span></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Email addresses</span><select class="sel" aria-label="Email action"><option>Redact</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.60</span><span></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Phone numbers</span><select class="sel" aria-label="Phone action"><option>Redact</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.60</span><span></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">Names</span><select class="sel" aria-label="Names action"><option>Redact</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.60</span><span></span></div>
+        <div class="rule"><span style="font-size: 15px; font-weight: 500">IP addresses</span><select class="sel" aria-label="IP action"><option>Warn</option></select><span style="font: 14px 'Geist Mono', monospace; color: #5C5850">0.60</span><span></span></div>
+      </section>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
+        <section class="card" style="flex: 999 1 460px; min-width: 0; padding: 32px 36px 20px; display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <h2 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.02em">Custom rules</h2>
+              <p style="margin: 0; font-size: 14px; color: #6F6A62">Catch your own internal terms, like project names or ID formats.</p>
+            </div>
+            <button class="btn btn-ghost" style="height: 40px; padding: 0 16px; font-size: 14px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+              Add rule
+            </button>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 0; border-top: 1px solid rgba(40,36,30,0.07)">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span style="display: flex; align-items: center; gap: 8px"><strong style="font-size: 15px; font-weight: 500">Project codename</strong><span class="chip">Keyword</span></span>
+              <code style="font: 13px 'Geist Mono', monospace; color: #6F6A62">Bluebird</code>
+            </div>
+            <button class="switch" role="switch" aria-checked="true" aria-label="Project codename enabled" style="background: #1A1916; justify-content: flex-end"><span></span></button>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 0; border-top: 1px solid rgba(40,36,30,0.07)">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span style="display: flex; align-items: center; gap: 8px"><strong style="font-size: 15px; font-weight: 500">Employee ID</strong><span class="chip">Pattern</span></span>
+              <code style="font: 13px 'Geist Mono', monospace; color: #6F6A62">EMP-[0-9]{6}</code>
+            </div>
+            <button class="switch" role="switch" aria-checked="true" aria-label="Employee ID enabled" style="background: #1A1916; justify-content: flex-end"><span></span></button>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 0; border-top: 1px solid rgba(40,36,30,0.07)">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span style="display: flex; align-items: center; gap: 8px"><strong style="font-size: 15px; font-weight: 500">Ticket numbers</strong><span class="chip">Pattern</span></span>
+              <code style="font: 13px 'Geist Mono', monospace; color: #6F6A62">OPS-[0-9]{3,5}</code>
+            </div>
+            <button class="switch" role="switch" aria-checked="false" aria-label="Ticket numbers enabled" style="background: #D9D5CD; justify-content: flex-start"><span></span></button>
+          </div>
+        </section>
+
+        <section class="card" style="flex: 1 1 340px; min-width: 0; padding: 32px 36px; display: flex; flex-direction: column; gap: 22px">
+          <h2 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.02em">When unsure</h2>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="unmatched" style="font-size: 14px; color: #6F6A62">Anything without a rule</label>
+            <select id="unmatched" class="sel"><option>Ask me to review</option></select>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label for="lowconf" style="font-size: 14px; color: #6F6A62">Low-confidence matches</label>
+            <select id="lowconf" class="sel"><option>Ask me to review</option></select>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px">
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <span style="font-size: 15px; font-weight: 500">If a scan fails</span>
+              <span style="font-size: 13px; color: #8E887E">Always blocks. Never sends unchecked.</span>
+            </div>
+            <span style="display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Block</span>
+          </div>
+        </section>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <button class="btn btn-ghost">Import signed policy</button>
+          <button class="btn btn-ghost">Export</button>
+        </div>
+        <button class="btn btn-primary">Save policy</button>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

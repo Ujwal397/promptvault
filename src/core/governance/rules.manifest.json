@@ -1,0 +1,1115 @@
+[
+  {
+    "id": "crypto.bip39-seed",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "759f365291e33dd7"
+  },
+  {
+    "id": "crypto.eth-private-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "4107ce343b27c127"
+  },
+  {
+    "id": "fin.bank-account",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "b4984ad686cf643e"
+  },
+  {
+    "id": "fin.card",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Accept only real card groupings with consistent separators; reject mostly-zero digit runs (hex dumps)"
+      }
+    ],
+    "fingerprint": "fb2924633681654b"
+  },
+  {
+    "id": "fin.iban",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "81905b47a1114251"
+  },
+  {
+    "id": "gov.au-tfn",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Labeled TFN failing checksum now reported at 0.6 (LABELED_FORMAT_CHECKSUM_FAILED)"
+      }
+    ],
+    "fingerprint": "45b48f478a8994d3"
+  },
+  {
+    "id": "gov.br-cpf",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Labeled CPF failing check digits now reported at 0.6 (LABELED_FORMAT_CHECKSUM_FAILED)"
+      }
+    ],
+    "fingerprint": "816fc5692e2908b3"
+  },
+  {
+    "id": "gov.ca-sin",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Labeled SIN failing Luhn now reported at 0.6 (LABELED_FORMAT_CHECKSUM_FAILED)"
+      }
+    ],
+    "fingerprint": "63f48a4532c2b9a9"
+  },
+  {
+    "id": "gov.es-dni",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "00cb5b2cb44d27a7"
+  },
+  {
+    "id": "gov.in-aadhaar",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Labeled Aadhaar failing Verhoeff now reported at 0.6 (LABELED_FORMAT_CHECKSUM_FAILED)"
+      }
+    ],
+    "fingerprint": "d71632cd1923dd3e"
+  },
+  {
+    "id": "gov.in-pan",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Labeled PAN with invalid holder-type letter now reported at 0.6 (LABELED_FORMAT_CHECKSUM_FAILED)"
+      }
+    ],
+    "fingerprint": "eb00aefb69f4cbd9"
+  },
+  {
+    "id": "gov.in-voter-id",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "ada3e04a6054db61"
+  },
+  {
+    "id": "gov.passport",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "f575d1210434a723"
+  },
+  {
+    "id": "gov.sg-nric",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Labeled NRIC/FIN with wrong checksum letter now reported at 0.6 (LABELED_FORMAT_CHECKSUM_FAILED)"
+      }
+    ],
+    "fingerprint": "a6de454f11189174"
+  },
+  {
+    "id": "gov.uk-nino",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Labeled NINO with invalid prefix now reported at 0.6; spaced format accepted (LABELED_FORMAT_CHECKSUM_FAILED)"
+      }
+    ],
+    "fingerprint": "17265bba02ffdb34"
+  },
+  {
+    "id": "gov.us-drivers-license",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "3f550b56f8b139ec"
+  },
+  {
+    "id": "gov.us-ein",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "5bc300c4f4003402"
+  },
+  {
+    "id": "gov.us-itin",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "f8a393e2d0399cbf"
+  },
+  {
+    "id": "gov.us-ssn",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Labeled SSN with invalid area/group/serial now reported at 0.6 (LABELED_FORMAT_CHECKSUM_FAILED)"
+      }
+    ],
+    "fingerprint": "4a447a7bfc6c7934"
+  },
+  {
+    "id": "health.condition",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "708e2b13e4200e1f"
+  },
+  {
+    "id": "health.mrn",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "2126808e6fe0aa6d"
+  },
+  {
+    "id": "pii.email",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "a4c27f2e0bf323e7"
+  },
+  {
+    "id": "pii.ipv4",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "8e3d59a1c6296318"
+  },
+  {
+    "id": "pii.ipv6",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "13b9dfa88f1b6b70"
+  },
+  {
+    "id": "pii.labeled-name",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Name must end at a word boundary; reject code identifiers like OpenAI( or Client.create"
+      }
+    ],
+    "fingerprint": "6c548792556aff5d"
+  },
+  {
+    "id": "pii.phone",
+    "version": "1.1.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-10-18",
+        "note": "Add UK national formats (07xxx, 02x, 01xx, parenthesised area codes) at 0.8"
+      }
+    ],
+    "fingerprint": "ef234c7af51f4a74"
+  },
+  {
+    "id": "secret.age-secret-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "3a717a6f3cbf318e"
+  },
+  {
+    "id": "secret.anthropic-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "c399fdfa69cd59d3"
+  },
+  {
+    "id": "secret.atlassian-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "78dc139e1dac3bd4"
+  },
+  {
+    "id": "secret.auth-header",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "33c254480ae6f319"
+  },
+  {
+    "id": "secret.aws-access-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "36a2451da812b28f"
+  },
+  {
+    "id": "secret.aws-access-key-embedded",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "0f3276655fec52db"
+  },
+  {
+    "id": "secret.aws-secret-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "9840220a7486e598"
+  },
+  {
+    "id": "secret.azure-ad-client-secret",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "0f754434a4a8c966"
+  },
+  {
+    "id": "secret.azure-storage-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "b8f18e19199b5ced"
+  },
+  {
+    "id": "secret.cloudflare-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "35bec12e9c53ed00"
+  },
+  {
+    "id": "secret.databricks-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "64f1922979e0cce8"
+  },
+  {
+    "id": "secret.db-keyvalue",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "490e004b8498c7a0"
+  },
+  {
+    "id": "secret.db-uri",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "7d6c76cb25daa2de"
+  },
+  {
+    "id": "secret.digitalocean-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "b0bf0635a826a57d"
+  },
+  {
+    "id": "secret.discord-webhook",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "dbbe2fcad4da049d"
+  },
+  {
+    "id": "secret.doppler-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "28a2d14f93c2bff8"
+  },
+  {
+    "id": "secret.fcm-server-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "38021d9303e3aa40"
+  },
+  {
+    "id": "secret.flyio-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "e718daeec02263a7"
+  },
+  {
+    "id": "secret.gcp-api-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "c0eb96ca206bba33"
+  },
+  {
+    "id": "secret.gcp-key-id",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "89070a0d4674b2d8"
+  },
+  {
+    "id": "secret.generic-assignment",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "9e15effcb07e3a2d"
+  },
+  {
+    "id": "secret.github-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "183b344c9e6389b3"
+  },
+  {
+    "id": "secret.gitlab-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "82241adb0ff9d9f2"
+  },
+  {
+    "id": "secret.google-oauth-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "553c0ed98d4c4fbe"
+  },
+  {
+    "id": "secret.grafana-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "457823f813a1a0c5"
+  },
+  {
+    "id": "secret.high-entropy",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "5a2ecd68b4371022"
+  },
+  {
+    "id": "secret.huggingface-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "981a0a15f1e3fe73"
+  },
+  {
+    "id": "secret.jdbc-url",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "79dc6bdd8c4d3a4f"
+  },
+  {
+    "id": "secret.jwt",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "aa06617956ee2d58"
+  },
+  {
+    "id": "secret.linear-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "d741cac6bcb5694f"
+  },
+  {
+    "id": "secret.mailgun-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "b003eda4d8a69671"
+  },
+  {
+    "id": "secret.mapbox-secret-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "d9f3fcd1cb40f1b2"
+  },
+  {
+    "id": "secret.notion-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "afdf5cec5d7e66d7"
+  },
+  {
+    "id": "secret.npm-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "f23f5267bd31d5a5"
+  },
+  {
+    "id": "secret.openai-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "df3be57bceedcccf"
+  },
+  {
+    "id": "secret.password-assignment",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "88508228e6657bb3"
+  },
+  {
+    "id": "secret.postman-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "8565a0ce5425f1b2"
+  },
+  {
+    "id": "secret.private-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "3b6184d7eeb6584b"
+  },
+  {
+    "id": "secret.prose-password",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "f91548571910b21c"
+  },
+  {
+    "id": "secret.putty-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "3f584984860303c9"
+  },
+  {
+    "id": "secret.pypi-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "84a1dbcc43f2ccce"
+  },
+  {
+    "id": "secret.sendgrid-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "82fb0c910ff40dc7"
+  },
+  {
+    "id": "secret.shopify-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "080b667073ff4f18"
+  },
+  {
+    "id": "secret.slack-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "2c7d8f17863ed9e9"
+  },
+  {
+    "id": "secret.slack-webhook",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "7151e5cee9b03dcc"
+  },
+  {
+    "id": "secret.split-token",
+    "version": "1.0.1",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      },
+      {
+        "version": "1.0.1",
+        "date": "2026-10-18",
+        "note": "Exclude the uncertain embedded-AWS detector from rejoined-token checks (prevents false positives on split-then-glued text)."
+      }
+    ],
+    "fingerprint": "d4b1b9a67c325f57"
+  },
+  {
+    "id": "secret.square-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "fc66584ba2859ff3"
+  },
+  {
+    "id": "secret.stripe-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "45b0aa82bb2fc57e"
+  },
+  {
+    "id": "secret.supabase-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "580982237b760652"
+  },
+  {
+    "id": "secret.telegram-bot-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "d313ae9ac1fc45c2"
+  },
+  {
+    "id": "secret.terraform-cloud-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "ca3b210063f7009d"
+  },
+  {
+    "id": "secret.twilio-key",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "644da3e5391f2ec9"
+  },
+  {
+    "id": "secret.url-password",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "3859fad0191ebb17"
+  },
+  {
+    "id": "secret.vault-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "a023b41b9e8716cb"
+  },
+  {
+    "id": "secret.vercel-token",
+    "version": "1.0.0",
+    "owner": "security-core",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-18",
+        "note": "initial"
+      }
+    ],
+    "fingerprint": "e3b6f74726063502"
+  }
+]

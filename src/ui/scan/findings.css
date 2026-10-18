@@ -1,0 +1,216 @@
+/* Scan · Review, findings list (docs/design/mockups/VaultReview.dc.html). Imported by FindingsPanel. */
+.findings-card {
+  flex: 1 1 400px;
+  min-width: 0;
+  padding: 28px 28px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.findings-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 8px;
+}
+
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.pill {
+  height: 34px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 13px/1 var(--font-sans);
+  cursor: pointer;
+}
+
+.pill[aria-pressed='true'] {
+  background: #eeebe5;
+  color: var(--ink);
+}
+
+.findings-empty {
+  padding: 20px 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.finding-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.finding-list li {
+  border-top: 1px solid rgba(40, 36, 30, 0.07);
+}
+
+.finding-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px 8px;
+  cursor: pointer;
+}
+
+/*
+ * A drawn checkbox, so the fill and the tick can ease in and out. Same size and colours as the native one.
+ * Forced-colours mode gets the native control back, because forced colours would hide the tick.
+ */
+.finding-row input[type='checkbox'] {
+  position: relative;
+  flex: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 3px 0 0;
+  border: 1.5px solid rgba(40, 36, 30, 0.3);
+  border-radius: 6px;
+  background: var(--card);
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+.finding-row input[type='checkbox']::after {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--card);
+  border-width: 0 2px 2px 0;
+  content: '';
+  transform: rotate(45deg) scale(0);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.finding-row input[type='checkbox']:checked {
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.finding-row input[type='checkbox']:checked::after {
+  transform: rotate(45deg) scale(1);
+}
+
+.finding-row input[type='checkbox']:disabled {
+  opacity: 0.55;
+}
+
+@media (forced-colors: active) {
+  .finding-row input[type='checkbox'] {
+    appearance: auto;
+  }
+
+  .finding-row input[type='checkbox']::after {
+    content: none;
+  }
+}
+
+.finding-row__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.finding-row__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.finding-row__label {
+  font-size: 15px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.finding-row__value {
+  font: 13px/1.5 var(--font-mono);
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.finding-row__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.finding-row__lock {
+  flex: none;
+  width: 12px;
+  height: 12px;
+}
+
+.severity {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.severity--high {
+  color: var(--ember-text);
+}
+
+.severity--medium {
+  color: var(--ochre-text);
+}
+
+.severity--low {
+  color: #5c5850;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot--high {
+  background: var(--ember);
+}
+
+.dot--medium {
+  background: var(--ochre);
+}
+
+.dot--low {
+  background: var(--stone);
+}
+
+@media (max-width: 560px) {
+  .findings-card {
+    padding: 20px 14px 6px;
+  }
+
+  .findings-head {
+    padding: 0 4px;
+  }
+
+  .finding-row {
+    padding: 16px 4px;
+  }
+}

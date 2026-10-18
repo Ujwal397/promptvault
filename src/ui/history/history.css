@@ -1,0 +1,177 @@
+/* History screen layout (docs/design/mockups/VaultHistory.dc.html). Colours come from the state tokens in src/index.css.
+   Stats and chart: history-chart.css. Categories, table and buttons: history-lists.css. */
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.history-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.history-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 560px;
+}
+
+.history-lede {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.history-note {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.history-text--ember {
+  color: var(--ember-text);
+}
+
+.history-text--ochre {
+  color: var(--ochre-text);
+}
+
+.history-text--sage {
+  color: var(--sage);
+}
+
+.history-text--muted {
+  color: var(--muted);
+}
+
+/* Record activity switch. Its own styles: the shared .switch is the two-option segmented control. */
+.history-toggle {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #5c5850;
+}
+
+.history-toggle__state {
+  min-width: 2.5em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.history-toggle__track {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid #8e887e;
+  border-radius: 999px;
+  background: #d9d5cc;
+  cursor: pointer;
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+
+.history-toggle__track--on {
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.history-toggle__knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 1px 3px rgba(26, 25, 22, 0.3);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.history-toggle__track--on .history-toggle__knob {
+  transform: translateX(18px);
+}
+
+.history-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.history-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  padding: 32px 36px;
+}
+
+.history-panel__title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.history-chart-card {
+  flex: 999 1 520px;
+}
+
+.history-cats-card {
+  flex: 1 1 300px;
+}
+
+@media (max-width: 480px) {
+  .history-panel {
+    padding: 24px 22px;
+  }
+}
+
+/* Empty states */
+.history-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 56px 32px;
+  text-align: center;
+}
+
+.history-empty__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(40, 36, 30, 0.12);
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--muted);
+}
+
+.history-empty__svg {
+  width: 22px;
+  height: 22px;
+}
+
+.history-empty__title {
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.history-empty__text {
+  max-width: 440px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+}

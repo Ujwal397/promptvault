@@ -1,0 +1,192 @@
+/* History totals and the 14-day chart. Loaded after history.css (panel and note classes). */
+
+/* Totals */
+.history-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.history-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 22px 24px;
+}
+
+.history-stat dt,
+.history-stat dd {
+  margin: 0;
+}
+
+.history-stat:nth-child(even) {
+  border-left: 1px solid rgba(40, 36, 30, 0.07);
+}
+
+.history-stat:nth-child(n + 3) {
+  border-top: 1px solid rgba(40, 36, 30, 0.07);
+}
+
+.history-stat__label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.history-stat__value {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  --delay: 140ms;
+}
+
+.history-stat__note {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+@media (min-width: 720px) {
+  .history-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .history-stat:nth-child(even) {
+    border-left: 0;
+  }
+
+  .history-stat:nth-child(n + 3) {
+    border-top: 0;
+  }
+
+  .history-stat:not(:first-child) {
+    border-left: 1px solid rgba(40, 36, 30, 0.07);
+  }
+}
+
+/* 14-day chart */
+.history-chart-plot,
+.history-chart-axis {
+  display: flex;
+  gap: 10px;
+}
+
+.history-chart-plot {
+  align-items: flex-end;
+  height: 200px;
+  border-bottom: 1px solid rgba(40, 36, 30, 0.1);
+}
+
+.history-chart-axis {
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.history-chart-axis > span {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
+}
+
+.history-day {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-width: 0;
+}
+
+.history-day__stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  /* Bars grow up from the baseline, one day after another. */
+  --delay: calc(120ms + var(--i, 0) * 22ms);
+}
+
+.history-seg {
+  display: block;
+  flex: none;
+  width: 100%;
+}
+
+.history-seg:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.history-seg:last-child {
+  border-radius: 0 0 2px 2px;
+}
+
+.history-seg--block {
+  background: var(--ember);
+}
+
+.history-seg--review {
+  /* The plain value is a fallback for browsers without color-mix(). */
+  background: #dcaa9d;
+  background: color-mix(in srgb, var(--ember) 45%, var(--card));
+}
+
+.history-seg--redact {
+  background: var(--ink);
+}
+
+.history-seg--warn {
+  background: var(--ochre);
+}
+
+.history-seg--allow {
+  background: #d0cdc7;
+  background: color-mix(in srgb, var(--stone) 50%, var(--card));
+}
+
+.history-chart-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+}
+
+.history-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.history-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.history-swatch {
+  display: inline-block;
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.history-chart-range {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Narrow screens: tighter chart gaps, so 14 bars fit beside the card padding. */
+@media (max-width: 480px) {
+  .history-chart-plot,
+  .history-chart-axis {
+    gap: 5px;
+  }
+}

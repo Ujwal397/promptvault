@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PromptVault · Settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F1EFEA}
+a{color:#1A1916}a:hover{color:#6F6A62}
+.grain{position:absolute;inset:0;pointer-events:none;background-image:url(/_blob/d1cff6e6c1ff04dd91572b4e9c32ec7b);background-size:240px 240px;opacity:0.22;mix-blend-mode:multiply}
+.card{background:#FDFCFA;border:1px solid rgba(40,36,30,0.08);border-radius:28px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 1px 2px rgba(40,36,30,0.05),0 28px 56px -24px rgba(40,36,30,0.22)}
+.btn{font:500 14px 'Geist',sans-serif;height:40px;padding:0 18px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;letter-spacing:-0.01em;white-space:nowrap}
+.btn-primary{background:linear-gradient(180deg,#3A3833 0%,#1A1916 100%);color:#F7F5F0;border:1px solid #1A1916;box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 10px 20px -10px rgba(26,25,22,0.55)}
+.btn-ghost{background:rgba(253,252,250,0.85);color:#1A1916;border:1px solid rgba(40,36,30,0.12)}
+.navbtn{font:500 14px 'Geist',sans-serif;height:42px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:#5C5850;cursor:pointer;display:inline-flex;align-items:center;gap:9px}
+.navbtn.on{background:linear-gradient(180deg,#3A3833,#1A1916);color:#F7F5F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 6px 14px -6px rgba(26,25,22,0.5)}
+.seg{font:500 13px 'Geist',sans-serif;height:34px;padding:0 14px;border:0;border-radius:999px;background:transparent;color:#6F6A62;cursor:pointer}
+.seg.on{background:#FDFCFA;color:#1A1916;box-shadow:0 1px 3px rgba(40,36,30,0.14)}
+.section{display:grid;grid-template-columns:minmax(200px,280px) minmax(0,1fr);gap:40px;padding:36px 0;border-top:1px solid rgba(40,36,30,0.10)}
+.item{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:20px 28px;border-top:1px solid rgba(40,36,30,0.07)}
+.item:first-child{border-top:0}
+.ititle{font-size:15px;font-weight:500}
+.idesc{font-size:14px;color:#6F6A62;line-height:1.5;max-width:440px}
+.switch{width:44px;height:26px;border-radius:999px;border:0;padding:3px;cursor:pointer;display:flex;align-items:center;flex-shrink:0}
+.switch span{width:20px;height:20px;border-radius:50%;background:#FDFCFA;box-shadow:0 1px 3px rgba(26,25,22,0.3)}
+.sel{font:500 14px 'Geist',sans-serif;height:38px;padding:0 14px;border-radius:999px;border:1px solid rgba(40,36,30,0.12);background:#FDFCFA;color:#1A1916}
+.ph{background:linear-gradient(180deg,#2E2C28,#1A1916);color:#EDEAE3;border-radius:4px;padding:2px 8px;font:13px 'Geist Mono',monospace}
+.ok{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:#3D6B4E}
+</style>
+</helmet>
+<div style="position: relative; overflow: hidden; min-height: 1400px; background: radial-gradient(1300px 820px at 18% -18%, #FBFAF6 0%, rgba(251,250,246,0) 62%), radial-gradient(900px 600px at 105% 105%, rgba(70,62,50,0.10), rgba(70,62,50,0) 70%), linear-gradient(180deg, #F3F1EC 0%, #E9E6DF 100%); font-family: 'Geist', sans-serif; color: #1A1916; letter-spacing: -0.01em">
+  <div class="grain"></div>
+  <div style="position: relative">
+    <div style="display: flex; justify-content: center; padding: 24px 16px 0">
+      <nav aria-label="Main" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; padding: 5px; background: rgba(253,252,250,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(40,36,30,0.08); border-radius: 999px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 18px 40px -16px rgba(40,36,30,0.25)">
+        <button class="navbtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2"></path><path d="M16 4h2a2 2 0 0 1 2 2v2"></path><path d="M20 16v2a2 2 0 0 1-2 2h-2"></path><path d="M8 20H6a2 2 0 0 1-2-2v-2"></path></svg>Scan</button>
+        <button class="navbtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg>Policy</button>
+        <button class="navbtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>History</button>
+        <button class="navbtn on"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M4.9 4.9l2.1 2.1"></path><path d="M17 17l2.1 2.1"></path><path d="M2 12h3"></path><path d="M19 12h3"></path><path d="M4.9 19.1L7 17"></path><path d="M17 7l2.1-2.1"></path></svg>Settings</button>
+      </nav>
+    </div>
+
+    <main style="max-width: 1080px; margin: 0 auto; padding: 72px 32px 96px; display: flex; flex-direction: column; gap: 8px">
+      <div style="display: flex; flex-direction: column; gap: 14px; padding-bottom: 32px">
+        <h1 style="margin: 0; font-size: 48px; line-height: 1.04; font-weight: 600; letter-spacing: -0.05em">Settings</h1>
+        <p style="margin: 0; max-width: 520px; font-size: 17px; line-height: 1.55; color: #6F6A62">How redaction looks, what gets remembered, and tools to test the scanner.</p>
+      </div>
+
+      <div class="section">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.02em">Redaction</h2>
+          <p style="margin: 0; font-size: 14px; color: #6F6A62; line-height: 1.5">How removed values appear in the prompt you copy.</p>
+        </div>
+        <div class="card" style="padding: 8px 0">
+          <div class="item">
+            <div style="display: flex; flex-direction: column; gap: 10px">
+              <span class="ititle">Placeholder style</span>
+              <span class="idesc">Labelled placeholders can be swapped back into the AI's reply. Masks can't.</span>
+              <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 14px; color: #6F6A62">Preview: <span class="ph">EMAIL_1</span></span>
+            </div>
+            <div role="group" aria-label="Placeholder style" style="display: flex; padding: 3px; background: #EEEBE5; border-radius: 999px; gap: 2px">
+              <button class="seg on">Labelled</button>
+              <button class="seg">Mask</button>
+            </div>
+          </div>
+          <div class="item">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span class="ititle">Spot names</span>
+              <span class="idesc">Uses on-device language analysis to suggest people's names. Suggestions only, never forced.</span>
+            </div>
+            <button class="switch" role="switch" aria-checked="true" aria-label="Spot names" style="background: #1A1916; justify-content: flex-end"><span></span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.02em">Activity</h2>
+          <p style="margin: 0; font-size: 14px; color: #6F6A62; line-height: 1.5">Powers the History tab. Off by default.</p>
+        </div>
+        <div class="card" style="padding: 8px 0">
+          <div class="item">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span class="ititle">Record activity</span>
+              <span class="idesc">Saves the day, outcome and counts for each scan. Never the text.</span>
+            </div>
+            <button class="switch" role="switch" aria-checked="true" aria-label="Record activity" style="background: #1A1916; justify-content: flex-end"><span></span></button>
+          </div>
+          <div class="item">
+            <label for="keep" class="ititle">Keep records for</label>
+            <select id="keep" class="sel"><option>30 days</option></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.02em">Testing</h2>
+          <p style="margin: 0; font-size: 14px; color: #6F6A62; line-height: 1.5">Check the scanner against tricky prompts and failures.</p>
+        </div>
+        <div class="card" style="padding: 8px 0">
+          <div class="item">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span class="ititle">Attack test suite</span>
+              <span class="idesc">Runs a set of disguised and obfuscated secrets through your current policy and reports what was caught.</span>
+              <span style="font-size: 13px; color: #8E887E">Not run yet</span>
+            </div>
+            <button class="btn btn-primary">Run suite</button>
+          </div>
+          <div class="item">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span class="ititle">Failure drill</span>
+              <span class="idesc">Makes a detector fail on purpose so you can see the scan block instead of passing silently.</span>
+            </div>
+            <button class="btn btn-ghost">Simulate failure</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.02em">Privacy</h2>
+          <p style="margin: 0; font-size: 14px; color: #6F6A62; line-height: 1.5">What this app can and can't do with your data.</p>
+        </div>
+        <div class="card" style="padding: 8px 0">
+          <div class="item">
+            <span class="ititle">Network connections</span>
+            <span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Blocked by security policy</span>
+          </div>
+          <div class="item">
+            <span class="ititle">Prompt text saved</span>
+            <span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Never</span>
+          </div>
+          <div class="item">
+            <span class="ititle">Placeholder map</span>
+            <span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Memory only, cleared on close</span>
+          </div>
+          <div class="item">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span class="ititle">Clear all data</span>
+              <span class="idesc">Removes history and saved policies from this browser.</span>
+            </div>
+            <button class="btn btn-ghost" style="color: #9C3A22">Clear everything</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

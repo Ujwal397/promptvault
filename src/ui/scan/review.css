@@ -1,0 +1,186 @@
+/* Scan · Review (docs/design/mockups/VaultReview.dc.html). Imported by ScanFlow; the findings list is in findings.css. */
+.step-heading:focus {
+  outline: none;
+}
+
+.review-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.review-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* The risk line is one inline row under the headline. It is never a floating badge. */
+.risk-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.risk-line__head {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.risk-line__title {
+  font-weight: 600;
+}
+
+.risk-line__title--ember,
+.risk-line__block {
+  color: var(--ember-text);
+}
+
+.risk-line__title--ochre {
+  color: var(--ochre-text);
+}
+
+.risk-line__title--stone {
+  color: #5c5850;
+}
+
+.risk-line__score {
+  font-weight: 500;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.risk-line__block {
+  font-weight: 500;
+}
+
+.risk-meter {
+  position: relative;
+  width: 240px;
+  max-width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(40, 36, 30, 0.1);
+}
+
+.risk-meter__fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  max-width: 100%;
+  border-radius: 999px;
+}
+
+/* The meter fills once the headline has started to rise. */
+.risk-line .risk-meter__fill {
+  --delay: 200ms;
+}
+
+.risk-meter__fill--ember {
+  background: linear-gradient(90deg, rgba(180, 69, 42, 0.15) 0%, rgba(180, 69, 42, 0.55) 50%, #b4452a 100%);
+}
+
+.risk-meter__fill--ochre {
+  background: linear-gradient(90deg, rgba(192, 138, 46, 0.15) 0%, rgba(192, 138, 46, 0.55) 50%, #c08a2e 100%);
+}
+
+.risk-meter__fill--stone {
+  background: #a39e95;
+}
+
+.review-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.review-prompt-card {
+  flex: 999 1 500px;
+  min-width: 0;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.review-card-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+.review-prompt {
+  flex: 1;
+  font: 15px/2 var(--font-mono);
+  color: #3a3732;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Highlights: colour shows severity. An unticked finding loses its fill and gets a dotted underline. */
+.hi {
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+/* Highlights fade in once the prompt card is on screen. Ticking a finding only changes the class, so nothing replays. */
+.review-prompt .hi {
+  animation: pv-fade-in var(--dur-slow) var(--ease-out) 240ms both;
+}
+
+.hi--high {
+  background: rgba(180, 69, 42, 0.11);
+  box-shadow: inset 0 -1.5px 0 #b4452a;
+}
+
+.hi--medium {
+  background: rgba(176, 122, 40, 0.14);
+  box-shadow: inset 0 -1.5px 0 #a8741f;
+}
+
+.hi--low {
+  background: rgba(40, 36, 30, 0.06);
+  box-shadow: inset 0 -1.5px 0 #a39e95;
+}
+
+.hi--kept {
+  background: none;
+  box-shadow: none;
+  text-decoration: underline dotted;
+  text-decoration-color: #6f6a62;
+  text-underline-offset: 4px;
+}
+
+.review-error {
+  font-size: 14px;
+  color: var(--ember-text);
+}
+
+.review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .review-prompt-card {
+    padding: 24px 18px;
+  }
+
+  .review-prompt {
+    font-size: 14px;
+  }
+
+  .risk-meter {
+    width: 100%;
+  }
+}

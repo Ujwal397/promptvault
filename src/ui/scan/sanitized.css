@@ -1,0 +1,272 @@
+/* Scan · Sanitized and "Got a reply?" (docs/design/mockups/VaultSanitized.dc.html). Imported by ScanFlow. */
+.sanitized-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sanitized-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.status-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.status-line__lead {
+  font-weight: 600;
+}
+
+.status-line--ok .status-line__lead {
+  color: var(--sage);
+}
+
+.status-line--kept .status-line__lead {
+  color: var(--ochre-text);
+}
+
+.status-line--bad .status-line__lead {
+  color: var(--ember-text);
+}
+
+.status-line__sep {
+  width: 1px;
+  height: 16px;
+  background: rgba(40, 36, 30, 0.15);
+}
+
+.sanitized-card {
+  padding: 10px;
+}
+
+.sanitized-text {
+  padding: 30px 32px;
+  border: 1px solid rgba(40, 36, 30, 0.07);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #faf9f6 100%);
+  font: 15px/2 var(--font-mono);
+  color: #3a3732;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Bars ink in after the card has started to rise, one after another (capped, so long prompts stay quick). */
+.sanitized-text .redact-bar {
+  --delay: calc(160ms + min(var(--i, 0), 8) * 40ms);
+}
+
+/* A redaction bar: the label without brackets. The copied text keeps the real [TYPE_N]. */
+.redact-bar {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #2e2c28, #1a1916);
+  color: #edeae3;
+  font: 13px/1.6 var(--font-mono);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.compare-mark {
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: rgba(180, 69, 42, 0.11);
+  box-shadow: inset 0 -1.5px 0 #b4452a;
+  color: inherit;
+}
+
+.sanitized-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 14px 10px 20px;
+}
+
+.seg-group {
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #eeebe5;
+}
+
+.seg {
+  height: 38px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 14px/1 var(--font-sans);
+  cursor: pointer;
+}
+
+.seg[aria-pressed='true'] {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(40, 36, 30, 0.14);
+}
+
+.sanitized-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.copy-status {
+  min-height: 20px;
+  margin: 0;
+  padding: 0 20px 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.copy-status--danger {
+  color: var(--ember-text);
+}
+
+.sanitized-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0 4px;
+  list-style: none;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.residual-card,
+.restore-card {
+  padding: 30px 36px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.restore-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.restore-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.restore-lede,
+.restore-note,
+.restore-status {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.restore-note,
+.restore-status {
+  font-size: 14px;
+}
+
+.placeholder-list,
+.residual-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.placeholder-row,
+.residual-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(40, 36, 30, 0.07);
+}
+
+.placeholder-row__label,
+.residual-row__label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.residual-row__label {
+  color: var(--ink);
+}
+
+.residual-row__value {
+  font: 13px var(--font-mono);
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.reply-input {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  padding: 16px 18px;
+  border: 1px solid rgba(40, 36, 30, 0.12);
+  border-radius: 16px;
+  background: #ffffff;
+  font: 14px/1.6 var(--font-mono);
+  color: #2a2824;
+  resize: vertical;
+}
+
+.restore-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.restore-output {
+  padding: 16px 18px;
+  border: 1px solid rgba(40, 36, 30, 0.07);
+  border-radius: 16px;
+  background: #faf9f6;
+  font: 14px/1.7 var(--font-mono);
+  color: #3a3732;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 560px) {
+  /* When the status line wraps, the decorative separator would dangle at the end of a line. */
+  .status-line__sep {
+    display: none;
+  }
+
+  .sanitized-text {
+    padding: 20px 18px;
+  }
+
+  .sanitized-toolbar {
+    padding: 12px 10px 8px 12px;
+  }
+
+  .copy-status {
+    padding: 0 12px 12px;
+  }
+
+  .residual-card,
+  .restore-card {
+    padding: 22px 18px 12px;
+  }
+}

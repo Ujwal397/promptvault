@@ -1,0 +1,277 @@
+/* Policy screen (docs/design/mockups/VaultPolicy.dc.html). Everything is scoped under .policy-screen. */
+.policy-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.policy-screen h2 {
+  margin: 0;
+}
+
+.policy-screen .btn-ghost {
+  background: rgba(253, 252, 250, 0.85);
+  color: var(--ink);
+  border: 1px solid rgba(40, 36, 30, 0.12);
+}
+
+.policy-screen .btn-compact {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.policy-screen .btn-text {
+  padding: 8px 6px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: 500 14px/1 var(--font-sans);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.policy-screen .btn-text:hover {
+  color: var(--ink);
+}
+
+.policy-icon {
+  flex: none;
+  width: 15px;
+  height: 15px;
+}
+
+.mono {
+  font: 400 14px/1 var(--font-mono);
+  color: #5c5850;
+}
+
+/* Header */
+.policy-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.policy-head__text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 560px;
+}
+
+.policy-lede {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* Strict / Permissive / Custom */
+.preset-control {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #eeebe5;
+}
+
+.preset-control__btn {
+  height: 38px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 14px/1 var(--font-sans);
+  cursor: pointer;
+}
+
+.preset-control__btn[aria-pressed='true'] {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(40, 36, 30, 0.14);
+}
+
+/* Cards */
+.policy-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px 36px 20px;
+}
+
+.policy-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+}
+
+.policy-card__title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.policy-card__hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.policy-card__lede {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.policy-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #eeebe5;
+  color: #5c5850;
+  font: 500 12px/1 var(--font-sans);
+}
+
+.policy-select {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(40, 36, 30, 0.12);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font: 500 14px/1 var(--font-sans);
+}
+
+.policy-select:disabled {
+  color: #5c5850;
+  background: #f4f2ee;
+  cursor: not-allowed;
+}
+
+/* Custom rules */
+.policy-split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.policy-split > .custom-card {
+  flex: 999 1 460px;
+  min-width: 0;
+}
+
+.policy-split > .policy-unsure {
+  flex: 1 1 340px;
+  min-width: 0;
+  padding: 32px 36px;
+  gap: 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.field__label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.field__input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(40, 36, 30, 0.12);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+  font: 400 14px/1 var(--font-sans);
+}
+
+.field__input--mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.field__input[aria-invalid='true'] {
+  border-color: var(--ember);
+}
+
+.field__hint {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.field__error {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ember-text);
+}
+
+/* When unsure */
+.lock-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.lock-row__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lock-row__title {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.lock-row__note {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.lock-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 720px) {
+  .policy-card,
+  .policy-split > .policy-unsure {
+    padding: 24px 18px 16px;
+  }
+
+  .policy-split > .custom-card {
+    flex-basis: 100%;
+  }
+
+  .custom-form__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
